@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWay - Личный Дневник</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #4e73df, #224abe);
+            color: white;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Хедер -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">MyWay</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#about">О проекте</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="hero">
+    <div>
+        <h1>Добро пожаловать в MyWay</h1>
+        <p>Ваш личный дневник, ваше вдохновение</p>
+        <a href="#new-entry" class="btn btn-custom btn-lg">Написать первую запись</a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <section id="about">
+        <h2>О проекте</h2>
+        <p>
+            MyWay - это ваш личный дневник, который поможет вам записывать свои мысли и идеи.
+            Здесь вы можете делиться своими переживаниями, записывать важные события и просто
+            сохранять воспоминания.
+        </p>
+    </section>
+
+    <section id="new-entry" class="mt-5">
+        <h2>Создайте свою первую запись</h2>
+        <p>Здесь появится форма для написания записи.</p>
+    </section>
+</div>
+
+<!-- Футер -->
+<footer class="text-center mt-5">
+    <p>&copy; <span id="year"></span> MyWay. Все права защищены.</p>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+
+</html>
