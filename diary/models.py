@@ -5,11 +5,10 @@ NULLABLE = {'blank': True, 'null': True}
 
 
 class Diary(models.Model):
-    title = models.CharField(max_length=100, verbose_name='Заголовок', help_text='Укажите заголовок события')
-    image = models.ImageField(upload_to='diary/image', verbose_name='Превью события',
-                              help_text='Загрузите превью события', **NULLABLE)
-    context = models.TextField(verbose_name='Описание события', help_text='Введите описание события')
-    date_event = models.CharField(max_length=20, verbose_name='Дата события', help_text='Введите дату события', **NULLABLE)
+    title = models.CharField(max_length=100, verbose_name='Заголовок')
+    image = models.ImageField(upload_to='diary/image', verbose_name='Превью события', **NULLABLE)
+    context = models.TextField(verbose_name='Описание события')
+    date_event = models.CharField(max_length=20, verbose_name='Дата события', **NULLABLE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания записи', **NULLABLE)
     is_active = models.BooleanField(default=True, help_text='Разрешить эту запись видеть всем?')
     owner = models.ForeignKey(User, verbose_name='Владелец', on_delete=models.SET_NULL, **NULLABLE)
