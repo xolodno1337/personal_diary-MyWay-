@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWay - Личный Дневник</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #4e73df, #224abe);
+            color: white;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .about-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .btn-custom {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+
+{% include 'includes/inc_menu.html' %}
+
+<body>
+<div class="hero">
+    <div>
+        <h1>Добро пожаловать в MyWay</h1>
+        <p>Ваш личный дневник, ваше вдохновение</p>
+        <a href="#new-entry" class="btn btn-custom btn-lg">Войти</a>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <section id="about" class="about-section">
+        <div>
+            <h2>О проекте</h2>
+            <p>
+                MyWay — это ваш персональный дневник, созданный для того, чтобы помогать вам фиксировать свои мысли и
+                идеи.
+
+                Здесь вы сможете делиться своими переживаниями, записывать важные события и просто сохранять
+                воспоминания. Вы можете открывать доступ к своим записям для других пользователей, однако если запись
+                имеет
+                личный характер, она будет доступна исключительно вам.
+
+                С MyWay вы можете оставить след в своем времени и вернуться к значимым моментам, когда это необходимо.
+            </p>
+        </div>
+    </section>
+</div>
+
+{% include 'includes/footer.html' %}
+
+</body>
+</html>
