@@ -1,0 +1,35 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<style>
+    body {
+        background: url('{% static 'background/bck.jpg' %}') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .custom-card {
+        width: 30%;
+        max-width: 600px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+</style>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <p>Хотите удалить пользователя "{{ object.email }}" ?</p>
+                            <button type="submit" class="btn btn-primary">Подтвердить</button>
+                            <a class="btn btn-secondary" href="{% url 'diary:diary_list' %}">Отмена</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'includes/footer.html' %}
+{% endblock %}

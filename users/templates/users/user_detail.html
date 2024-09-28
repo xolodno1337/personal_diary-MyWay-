@@ -1,0 +1,140 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Детали пользователя</title>
+    <style>
+        body {
+            background: url('{% static 'background/bck.jpg' %}') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-info {
+            margin-bottom: 30px;
+        }
+
+        .user-info p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .avatar {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .avatar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .actions {
+            text-align: center;
+        }
+
+        .actions a, .actions button {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .actions a:hover, .actions button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Детали пользователя</h1>
+
+    <div class="user-info">
+        <div class="avatar">
+            <strong>Аватар:</strong><br>
+            {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" alt="Аватар">
+            {% else %}
+            <p>Аватар не загружен.</p>
+            {% endif %}
+        </div>
+
+        <h2>Информация о пользователе:</h2>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+
+        {% if user.nick_name %}
+        <p><strong>Nickname:</strong> {{ user.nick_name }}</p>
+        {% endif %}
+
+        {% if user.birthday %}
+        <p><strong>Дата рождения:</strong> {{ user.birthday }}</p>
+        {% endif %}
+
+        {% if user.phone %}
+        <p><strong>Номер телефона:</strong> {{ user.phone }}</p>
+        {% endif %}
+
+        {% if user.tg_nick %}
+        <p><strong>Telegram:</strong> {{ user.tg_nick }}</p>
+        {% endif %}
+
+        {% if user.vk_nick %}
+        <p><strong>ВКонтакте:</strong> {{ user.vk_nick }}</p>
+        {% endif %}
+    </div>
+
+    <div class="actions">
+        <a href="{% url 'users:user_update' user.pk %}">Изменить профиль</a>
+
+        <form action="{% url 'users:user_delete' user.pk %}" method="GET" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="delete-button">Удалить профиль</button>
+        </form>
+
+        <br><br>
+        {% if can_view_users %}
+        <a href="{% url 'users:user_list' %}">Вернуться к списку пользователей</a>
+        {% else %}
+        <a href="javascript:history.back()">Вернуться назад</a>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
