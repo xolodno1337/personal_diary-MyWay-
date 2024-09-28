@@ -1,7 +1,5 @@
 import secrets
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import PasswordResetView
-from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404, redirect
 from config.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
