@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -16,10 +17,15 @@ class DiaryListView(LoginRequiredMixin, ListView):
     template_name = 'diary/diary_list.html'
 
     def get_queryset(self):
+        query = self.request.GET.get('q', None)
         if self.request.user.is_superuser:
-            return Diary.objects.all().order_by('-created_at')
+            qs = Diary.objects.all()
         else:
-            return Diary.objects.filter(is_active=True).order_by('-created_at')
+            qs = Diary.objects.filter(is_active=True)
+        if query:
+            qs = qs.filter(Q(title__icontains=query) | Q(context__icontains=query))
+
+        return qs.order_by('-created_at')
 
 
 class DiaryDetailView(LoginRequiredMixin, DetailView):
