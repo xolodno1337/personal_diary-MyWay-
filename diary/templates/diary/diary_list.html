@@ -38,7 +38,7 @@
         }
 
         .entry-title-link {
-            font-size: 1.5rem; /* Увеличенный размер текста */
+            font-size: 1.5rem;
             color: #4e73df;
             text-decoration: none;
         }
@@ -61,18 +61,42 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        .search-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            margin-bottom: 21px;
+            width: 250px;
+            height: 38px;
+            margin-right: 10px;
+            padding: 0.375rem 0.75rem;
+        }
+
+        .search-button {
+            height: 38px;
+            padding: 0.375rem 0.75rem;
+        }
     </style>
 </head>
 
 {% include 'includes/inc_menu.html' %}
 
 <body>
-<body>
 <div class="container text-center">
     <h1 style="color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
         Публикации пользователей:
     </h1>
-    <a href="{% url 'diary:diary_create' %}" class="btn btn-primary">Добавить запись</a>
+    <a href="{% url 'diary:diary_create' %}" class="btn btn-primary mb-3">Добавить запись</a>
+    <form method="GET" action="{% url 'diary:diary_list' %}" class="search-form">
+        <input type="text" name="q" placeholder="Поиск по записям"
+               value="{{ request.GET.q }}" class="form-control search-input"/>
+        <button type="submit" class="btn btn-primary search-button">Поиск</button>
+    </form>
 </div>
 
 <div class="container">
