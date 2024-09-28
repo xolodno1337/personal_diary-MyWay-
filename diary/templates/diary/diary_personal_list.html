@@ -1,0 +1,100 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyWay - Мои записи</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        body {
+            background: url('{% static 'background/bck.jpg' %}') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .entries-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 50px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .entry {
+            background-color: white;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1 0 200px;
+            max-width: 300px;
+        }
+
+        .entry h3 {
+            margin: 0;
+            color: #4e73df;
+        }
+
+        .entry-title-link {
+            font-size: 1.5rem; /* Увеличенный размер текста */
+            color: #4e73df;
+            text-decoration: none;
+        }
+
+        .entry p {
+            margin-top: 10px;
+        }
+
+        .btn-primary {
+            margin-bottom: 20px;
+        }
+
+        .entry img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+{% include 'includes/inc_menu.html' %}
+
+<div class="container text-center">
+    <h1 style="color: white; text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;">
+        Мои записи:
+    </h1>
+    <a href="{% url 'diary:diary_create' %}" class="btn btn-primary">Добавить запись</a>
+</div>
+
+<div class="container">
+    <div class="entries-container">
+        {% for diary in object_list %}
+        <div class="entry">
+            <h3>
+                <a href="{% url 'diary:diary_detail' diary.pk %}" class="entry-title-link">{{ diary.title }}</a>
+            </h3>
+            <p><strong>Дата:</strong> {{ diary.date_event }}</p>
+            {% if diary.image %}
+            <img src="{{ diary.image.url }}" alt="Изображение записи">
+            {% endif %}
+            <p>{{ diary.context|truncatewords:10 }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if not object_list %}
+    **<p>Записей не найдено.</p>**
+    {% endif %}
+</div>
+
+{% include 'includes/footer.html' %}
+
+</body>
+</html>
