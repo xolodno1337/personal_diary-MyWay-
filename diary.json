@@ -1,0 +1,80 @@
+[
+{
+    "model": "diary.diary",
+    "pk": 1,
+    "fields": {
+        "title": "Первая запись",
+        "image": "diary/image/idei-dlya-lichnogo-dnevnika-27.jpg",
+        "context": "Небольшая информация для записи",
+        "date_event": "26.09.2024",
+        "created_at": "2024-09-26T08:41:50.032Z",
+        "is_active": true,
+        "owner": 1
+    }
+},
+{
+    "model": "diary.diary",
+    "pk": 2,
+    "fields": {
+        "title": "Хороший сон",
+        "image": "diary/image/ab67616d0000b273c3bf0c5b0c3688f03a5e5418.jpeg",
+        "context": "Выспался",
+        "date_event": "26.09.2024",
+        "created_at": "2024-09-26T08:43:05.731Z",
+        "is_active": true,
+        "owner": 1
+    }
+},
+{
+    "model": "diary.diary",
+    "pk": 3,
+    "fields": {
+        "title": "Вечерняя прогулка",
+        "image": "diary/image/1689311624_kartin-papik-pro-p-kartinki-papa-i-mama-gulyayut-v-parke-48.jpg",
+        "context": "Хорошая погода",
+        "date_event": "22.09.2024",
+        "created_at": "2024-09-26T08:43:58.045Z",
+        "is_active": false,
+        "owner": 4
+    }
+},
+{
+    "model": "diary.diary",
+    "pk": 5,
+    "fields": {
+        "title": "Зарядка",
+        "image": "",
+        "context": "Неплохое начало дня",
+        "date_event": "21.09.2024",
+        "created_at": "2024-09-28T08:18:39.638Z",
+        "is_active": true,
+        "owner": 4
+    }
+},
+{
+    "model": "diary.diary",
+    "pk": 6,
+    "fields": {
+        "title": "Список дел",
+        "image": "diary/image/stains_light_pale_46852_2560x1560.jpg",
+        "context": "Наконец выполнил все дела",
+        "date_event": "28.09.2024",
+        "created_at": "2024-09-28T08:19:20.932Z",
+        "is_active": true,
+        "owner": 4
+    }
+},
+{
+    "model": "diary.diary",
+    "pk": 7,
+    "fields": {
+        "title": "Поход в кино",
+        "image": "diary/image/e93d01ce4d-1_1390x600.jpg",
+        "context": "Что-то не о чем",
+        "date_event": "21.09.2024",
+        "created_at": "2024-09-28T08:20:08.852Z",
+        "is_active": true,
+        "owner": 4
+    }
+}
+]
