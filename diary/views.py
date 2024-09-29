@@ -69,5 +69,3 @@ class DiaryPersonalListView(LoginRequiredMixin, ListView):
         if query:
             qs = qs.filter(Q(title__icontains=query) | Q(context__icontains=query))
         return qs.order_by('-created_at')
-
-
