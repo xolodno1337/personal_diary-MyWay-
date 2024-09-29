@@ -1,0 +1,74 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$NEFzSH8tft9YYY21sus7YL$DPfOPPPMDvOMM3OwRIfSePrSEWPVIqpBLO8V9Urn8Bc=",
+        "last_login": "2024-09-29T09:26:22.837Z",
+        "is_superuser": true,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-09-25T10:56:51.145Z",
+        "nick_name": null,
+        "email": "admin@example.com",
+        "avatar": "",
+        "birthday": null,
+        "phone": null,
+        "token": null,
+        "tg_nick": null,
+        "vk_nick": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+        "password": "11111",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "Иван",
+        "last_name": "Долгих",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-26T13:28:37Z",
+        "nick_name": "rrrarararar",
+        "email": "ivan@mail.ru",
+        "avatar": "users/avatars/ArsEMsxpwjhaW9qaDEkEki.jpg",
+        "birthday": null,
+        "phone": null,
+        "token": null,
+        "tg_nick": null,
+        "vk_nick": null,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$GGVaImdyGflnZDLRv3oGaF$1szmdSNa8hvsoY5aSQ7+S71r3k1iI3sY8QyhBDLh5B4=",
+        "last_login": "2024-09-29T08:26:43.582Z",
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-27T08:30:54.365Z",
+        "nick_name": "Leon",
+        "email": "xolodnotchk@mail.ru",
+        "avatar": "users/avatars/i.webp",
+        "birthday": "1990-09-30",
+        "phone": "+79312999999",
+        "token": "dc440fb061bd1e53c0adc82e8aaed5f9",
+        "tg_nick": "gdetorgovec",
+        "vk_nick": "vk.com/leon",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

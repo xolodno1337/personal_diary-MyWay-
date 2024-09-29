@@ -87,6 +87,13 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+
+        .no-results-message {
+            color: black;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 3rem;
+        }
     </style>
 </head>
 
@@ -125,7 +132,7 @@
     </div>
 
     {% if not object_list %}
-    <p>Записей не найдено.</p>
+    <p class="no-results-message">Записей не найдено.</p>
     {% endif %}
 </div>
 
