@@ -17,6 +17,14 @@
             border: none;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
+        .btn-link-style {
+            text-decoration: none;
+            color: #007bff; /* Окраска текста как у ссылок Bootstrap, можно изменить */
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
@@ -31,7 +39,12 @@
                         {{ form.as_p }}
                         <button type="submit" class="btn btn-primary btn-block">Войти</button>
                     </form>
-                    <p class="text-center mt-3">Еще нет аккаунта? <a href="{% url 'users:register' %}">Зарегистрироваться</a>
+                    <p class="text-center mt-3">
+                        Еще нет аккаунта? <a href="{% url 'users:register' %}" class="btn btn-link btn-link-style">Зарегистрироваться</a>
+                    </p>
+                    <p class="text-center mt-2">
+                        <a href="{% url 'users:reset_password' %}" class="btn btn-link btn-link-style">Забыли
+                            пароль?</a>
                     </p>
                 </div>
             </div>
