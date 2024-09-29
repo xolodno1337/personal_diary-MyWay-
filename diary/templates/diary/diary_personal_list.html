@@ -61,6 +61,32 @@
             margin-left: auto;
             margin-right: auto;
         }
+        .search-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            margin-bottom: 21px;
+            width: 250px;
+            height: 38px;
+            margin-right: 10px;
+            padding: 0.375rem 0.75rem;
+        }
+
+        .search-button {
+            height: 38px;
+            padding: 0.375rem 0.75rem;
+        }
+
+        .private-note {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+    }
     </style>
 </head>
 
@@ -71,6 +97,11 @@
         Мои записи:
     </h1>
     <a href="{% url 'diary:diary_create' %}" class="btn btn-primary">Добавить запись</a>
+    <form method="GET" action="{% url 'diary:diary_personal_list' %}" class="search-form">
+        <input type="text" name="q" placeholder="Поиск по записям"
+               value="{{ request.GET.q }}" class="form-control search-input"/>
+        <button type="submit" class="btn btn-primary search-button">Поиск</button>
+    </form>
 </div>
 
 <div class="container">
@@ -85,12 +116,15 @@
             <img src="{{ diary.image.url }}" alt="Изображение записи">
             {% endif %}
             <p>{{ diary.context|truncatewords:10 }}</p>
+            {% if not diary.is_active %}
+            <p class="private-note">Видно только вам</p>
+            {% endif %}
         </div>
         {% endfor %}
     </div>
 
     {% if not object_list %}
-    **<p>Записей не найдено.</p>**
+    <p>Записей не найдено.</p>
     {% endif %}
 </div>
 

@@ -24,7 +24,6 @@ class DiaryListView(LoginRequiredMixin, ListView):
             qs = Diary.objects.filter(is_active=True)
         if query:
             qs = qs.filter(Q(title__icontains=query) | Q(context__icontains=query))
-
         return qs.order_by('-created_at')
 
 
@@ -65,4 +64,10 @@ class DiaryPersonalListView(LoginRequiredMixin, ListView):
     template_name = 'diary/diary_personal_list.html'
 
     def get_queryset(self):
-        return Diary.objects.filter(owner=self.request.user).order_by('-created_at')
+        query = self.request.GET.get('q', None)
+        qs = Diary.objects.filter(owner=self.request.user).order_by('-created_at')
+        if query:
+            qs = qs.filter(Q(title__icontains=query) | Q(context__icontains=query))
+        return qs.order_by('-created_at')
+
+
